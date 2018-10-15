@@ -10,21 +10,23 @@
 <body>
 		
    <div>
-     <a href="${pageContext.request.contextPath}/requestout.action" >log out</a> &nbsp;
+     <a href="tologout" >log out</a> &nbsp;
      <a href="${pageContext.request.contextPath}/index.jsp" >首页</a> &nbsp;
      <a href="${pageContext.request.contextPath}/help.jsp">帮助</a> &nbsp;
-     <a href="${pageContext.request.contextPath}/shutdown.action" >远程关机</a> 
+     <%--<a href="${pageContext.request.contextPath}/shutdown.action" >远程关机</a> --%>
   </div>
   
-  <div style="font-size: 24px ; text-align: center">欢迎你登陆iCloud <div style="font-size: 20px; color: green;font-style: oblique; float:inherit; ">${user_name}</div></div>
+  <div style="font-size: 24px ; text-align: center">欢迎你登陆iCloud <div style="font-size: 20px; color: green;font-style: oblique; float:inherit; ">${sessionScope.user.username}</div></div>
   
   <hr color="blue" size="2"/><br/>
   
-   <form action="${pageContext.request.contextPath}/upload.action" method="post" enctype="multipart/form-data">
-        <input type="submit" onclick="return checkfile()" value="上传文件" style="background: white;"/>
-    	<input type="file" onchange="checkfile()" id="fileupload" name="file" onpropertychange="getFileSize(this.value)"/><br/>
-    	<input type="hidden" name="username" value="${user_name}" /><br/>
-        <img id="tempimg" dynsrc="" src="" style="display:none" />  
+   <form action="uploadFile" method="post" enctype="multipart/form-data">
+        <%--<input type="submit" onclick="return checkfile()" value="上传文件" style="background: white;"/>--%>
+    	<%--<input type="file" onchange="checkfile()" id="fileupload" name="file" onpropertychange="getFileSize(this.value)"/><br/>--%>
+        <input type="file" name="file"/>
+            <input type="submit" value="上传">
+    	<%--<input type="hidden" name="username" value="${sessionScope.user.username}" /><br/>--%>
+       <%-- <img id="tempimg" dynsrc="" src="" style="display:none" />  --%>
     	${message }
   </form>
   <br/>
@@ -79,13 +81,13 @@
 	    		<td>
                   <a href="javascript:void(0)" onclick="godelete(${pagebean.currentpage},${c.id})">删除文件</a>
 	    		</td>
-    		<tr>
+    		</tr>
     	</c:forEach>
     	
     </table>
     <br/>
        共[${requestScope.pagebean.totalrecord}]条记录,
-     每页 <input type="text" id = "pagesize" value="${pagebean.pagesize }" onchange="gotopage(${pagebean.currentpage})" style="10px" maxlength="5">条
+     每页 <input type="text" id = "pagesize" value="${pagebean.pagesize }" onchange="gotopage(${pagebean.currentpage})" style="10px;" maxlength="5">条
        共[${requestScope.pagebean.totalpage}]页,
        当前是第[${requestScope.pagebean.currentpage}]页,
       <a href="javascript:void(0)" onclick="gotopage(1)">回到首页</a>

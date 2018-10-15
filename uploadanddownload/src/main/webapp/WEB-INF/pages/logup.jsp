@@ -7,11 +7,11 @@
 <title>注册</title>
 </head>
 <body>
-  <div><a href="${pageContext.request.contextPath}/requestin.action" >log in</a>  &nbsp;
+  <div><a href="tologin" >log in</a>  &nbsp;
        <a href="${pageContext.request.contextPath}/index.jsp" >首页</a> 
   </div>
    <center>
-	   <form action="${pageContext.request.contextPath}/logup.action" method="post" style="margin: 200px">
+	   <form action="logup" method="post" style="margin: 200px">
 	   <table>
 	       <tr>
 	          <td>用户名</td><td><input type="text" name="username" >${usernameerror}</td>

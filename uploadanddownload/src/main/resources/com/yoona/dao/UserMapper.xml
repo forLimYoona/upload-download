@@ -3,9 +3,10 @@
      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
      "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="com.yoona.dao.UserMapper" >
- 
-     <select id="checkUser" parameterType="com.yoona.domain.User" resultType="java.lang.String" >
-        SELECT user.username FROM user WHERE username=#{username} AND password=#{password}
+
+    <!--验证用户名与密码-->
+     <select id="checkUser" parameterType="com.yoona.domain.User" resultType="com.yoona.domain.User" >
+        SELECT id,username,password,isvip FROM user WHERE username=#{username} AND password=#{password}
      </select>
      
      <select id="findUser" parameterType="java.lang.String" resultType="java.lang.Integer" >

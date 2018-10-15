@@ -28,6 +28,12 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <!--上传下载配置-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="10485760"/>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
     <!--释放静态资源-->
     <mvc:default-servlet-handler/>
 

@@ -3,9 +3,11 @@ package com.yoona.domain;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
+
 @Component("user")
 @Scope("prototype")
-public class User  {
+public class User  implements Serializable{
 	private int id;
 	private String password;
 	private String username;

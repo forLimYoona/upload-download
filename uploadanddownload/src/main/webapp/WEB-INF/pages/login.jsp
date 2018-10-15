@@ -6,11 +6,11 @@
     <title>登陆</title>
 </head>
 <body>
-   <div><a href="${pageContext.request.contextPath}/requestup.action" >log up</a>  &nbsp;
+   <div><a href="tologup" >log up</a>  &nbsp;
           <a href="${pageContext.request.contextPath}/index.jsp" >首页</a> 
    </div>
        <center>
-	   <form action="${pageContext.request.contextPath}/login.action" method="post" style="margin: 200px">
+	   <form action="login" method="post" style="margin: 200px">
 	    <table>
 	       <tr>
 	          <td>用户名</td><td><input type="text" name="username" >${error}</td>

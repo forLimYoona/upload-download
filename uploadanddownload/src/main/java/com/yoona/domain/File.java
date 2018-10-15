@@ -10,11 +10,12 @@ import org.springframework.stereotype.Component;
 public class File {
 	
 	private int id;
-	private String filename;
-	private String filepath;
-	private String filesize;
-	private Date createtime;
-	private int canshare;
+	private String filename;  //文件名
+	private String filepath;  //文件位置
+	private String filesize; //文件大小
+	private Date createtime; //创建时间
+	private int canshare;    //表示私有性
+	private String owner;    //表示上传者姓名
 	
 	public int getId() {
 		return id;
@@ -52,7 +53,12 @@ public class File {
 	public void setCanshare(int canshare) {
 		this.canshare = canshare;
 	}
-	
-	
-	
+
+	public String getOwner() {
+		return owner;
+	}
+
+	public void setOwner(String owner) {
+		this.owner = owner;
+	}
 }
